@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -29,9 +30,9 @@ public class Driver {
 
         Stream<String> sm = Arrays.stream(arr);
 
-        ArrayList<Shape> shapeList = new ArrayList<>();//Arraylist of shapes from file
+       List<Shape> shapeList = new ArrayList<>();//Arraylist of shapes from file
 
-        //sort and display shape name and area
+        //Parse shapes
         sm.forEach(str -> {
             String[] myShape = str.split(",");
             if(myShape[0].equals("Rectangle")){
@@ -41,6 +42,16 @@ public class Driver {
                 shapeList.add(Circle.parse(str));
             }
         });
+        sm.close();
+
+        //Sort shapeList according to Class Name, then by area
+        Collections.sort(shapeList, (s1, s2)->{
+          int classCheck = ("" + s1.getClass()).compareTo(""+s2.getClass());
+          return classCheck != 0 ? classCheck : (int)(s1.getArea()-s2.getArea());
+        });//Based on page 19 of Tutorial 1 ppt
+
+        System.out.println(shapeList);//Display the shapes sorted by Name then area
+
 
 
 

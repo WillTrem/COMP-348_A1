@@ -30,6 +30,6 @@ public class Circle implements Shape{
         return Math.PI * Math.pow(radius,2);
     }
     public String getName(){
-        return this.getClass().toString().toUpperCase(Locale.ROOT);
+        return this.getClass().toString().toUpperCase(Locale.ROOT).substring(6);
     }
 }
