@@ -18,6 +18,7 @@ public class Circle implements Shape{
     public String toString(){
         return this.getName() + "," + radius;
     }
+
     public static Circle parse(String str){
         String[] list = str.split(",");
         return new Circle(Double.parseDouble(list[1]));
