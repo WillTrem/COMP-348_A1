@@ -27,8 +27,14 @@ public class Rectangle implements Shape{
         return this.getName() + "," + width + "," + height;
     }
     public static Rectangle parse(String str){
+        try {
         String[] list = str.split(",");
         return new Rectangle(Double.parseDouble(list[1]),Double.parseDouble(list[2]));
+    	}
+    	catch(RuntimeException e) {
+    		System.out.println("The object couldn't be created. Please look at the format of the parameter passed.");
+    		return null;
+    	}
     }
 
     public double getPerimeter(){
