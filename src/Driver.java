@@ -1,7 +1,9 @@
 import java.io.*;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Driver {
     public static void main(String[] args) throws IOException {
@@ -27,12 +29,13 @@ public class Driver {
         }
 
         Stream<String> sm = Arrays.stream(arr);
-        
-        //sort and display shape name and area
+
+       List<Shape> shapeList = new ArrayList<>();//Arraylist of shapes from file
+
+        //Parse shapes
         sm.forEach(str -> {
             String[] myShape = str.split(",");
-            //Shape s = new Shape.getName();
-			if(myShape[0].equals("Rectangle")){
+            if(myShape[0].equals("Rectangle")){
                 shapeList.add(Rectangle.parse(str));
             }
             else if(myShape[0].equals("Circle")){
@@ -60,6 +63,5 @@ public class Driver {
         double circAvgArea = shapeList.stream().filter(x->x.getName().equals("CIRCLE")).mapToDouble(Shape::getArea).average().getAsDouble();
         System.out.println("Average Perimeter of Rectangles: " + rectAvgPerimeter + "\nAverage Area of Rectangles: " + rectAvgArea
         + "\nAverage Perimeter of Circles: " + circAvgPerimeter + "\nAverage Area of Circles: " + circAvgArea + "\nTotal amount of shapes: " + shapeList.size());
-        
     }
 }

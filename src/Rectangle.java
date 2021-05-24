@@ -26,6 +26,7 @@ public class Rectangle implements Shape{
     public String toString(){
         return this.getName() + "," + width + "," + height;
     }
+
     public static Rectangle parse(String str){
         try {
         String[] list = str.split(",");

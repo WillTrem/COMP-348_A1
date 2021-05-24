@@ -18,6 +18,7 @@ public class Circle implements Shape{
     public String toString(){
         return this.getName() + "," + radius;
     }
+
     public static Circle parse(String str){
         try {
         String[] list = str.split(",");
@@ -35,6 +36,6 @@ public class Circle implements Shape{
         return Math.PI * Math.pow(radius,2);
     }
     public String getName(){
-        return this.getClass().toString().toUpperCase(Locale.ROOT);
+        return this.getClass().toString().toUpperCase(Locale.ROOT).substring(6);
     }
 }
