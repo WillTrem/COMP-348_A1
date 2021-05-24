@@ -42,25 +42,25 @@ public class Driver {
                 shapeList.add(Circle.parse(str));
             }
         });
-        sm.close();
-
-        //Sort shapeList according to Class Name, then by area
+		sm.close();
+		
+		//Sort shapeList according to Class Name, then by area
         Collections.sort(shapeList, (s1, s2)->{
           int classCheck = ("" + s1.getClass()).compareTo(""+s2.getClass());
           return classCheck != 0 ? classCheck : (int)(s1.getArea()-s2.getArea());
         });//Based on page 19 of Tutorial 1 ppt
 
-        System.out.println("Shapes sorted by Name & Area: " + shapeList);//Display the shapes sorted by Name then area
-
+		System.out.println("Shapes sorted by Name & Area: " + shapeList);//Display the shapes sorted by Name then area
+        
         Collections.sort(shapeList, (s1, s2) -> (int)(s1.getPerimeter() - s2.getPerimeter()));
-
+        
         System.out.println("Shapes sorted by perimeters: " + shapeList);//Display the shapes sorted by perimeter only
 
-        //Displaying Summaries
-        double rectAvgPerimeter = shapeList.stream().filter(x->x.getName().equals("Rectangle")).mapToDouble(x -> x.getPerimeter()).average().getAsDouble();
-        double rectAvgArea = shapeList.stream().filter(x->x.getName().equals("Rectangle")).mapToDouble(x -> x.getArea()).average().getAsDouble();
-        double circAvgPerimeter = shapeList.stream().filter(x->x.getName().equals("CIRCLE")).mapToDouble(x -> x.getPerimeter()).average().getAsDouble();
-        double circAvgArea = shapeList.stream().filter(x->x.getName().equals("CIRCLE")).mapToDouble(x -> x.getArea()).average().getAsDouble();
+		//Displaying Summaries
+        double rectAvgPerimeter = shapeList.stream().filter(x->x.getName().equals("Rectangle")).mapToDouble(Shape::getPerimeter).average().getAsDouble();
+        double rectAvgArea = shapeList.stream().filter(x->x.getName().equals("Rectangle")).mapToDouble(Shape::getArea).average().getAsDouble();     
+        double circAvgPerimeter = shapeList.stream().filter(x->x.getName().equals("CIRCLE")).mapToDouble(Shape::getPerimeter).average().getAsDouble();
+        double circAvgArea = shapeList.stream().filter(x->x.getName().equals("CIRCLE")).mapToDouble(Shape::getArea).average().getAsDouble();
         System.out.println("Average Perimeter of Rectangles: " + rectAvgPerimeter + "\nAverage Area of Rectangles: " + rectAvgArea
         + "\nAverage Perimeter of Circles: " + circAvgPerimeter + "\nAverage Area of Circles: " + circAvgArea + "\nTotal amount of shapes: " + shapeList.size());
     }

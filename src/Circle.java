@@ -20,8 +20,14 @@ public class Circle implements Shape{
     }
 
     public static Circle parse(String str){
+        try {
         String[] list = str.split(",");
         return new Circle(Double.parseDouble(list[1]));
+    	}
+    	catch(RuntimeException e) {
+    		System.out.println("The object couldn't be created. Please look at the format of the parameter passed.");
+    		return null;
+    	}
     }
     public double getPerimeter(){
         return Math.PI * 2 * radius;
