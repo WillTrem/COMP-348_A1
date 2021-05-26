@@ -34,9 +34,10 @@ length(L, SizeOfTeam),
 
 %Unique courses taken by the whole team
 findall(X, course(_,X,_), C),
-list_to_set(C, CommonClasses),
-sort(CommonClasses, SortedClasses),
+list_to_set(C, CommonCourses),
+sort(CommonCourses, SortedCourses),
 
-A = 'Data_Structures_and_Algorithms',
-B = 'Engineering_Management_Principles_and_Economics',
-C = ['Impact_of_Technology_on_Society', 'Introduction_to_Marketing', 'Introduction_to_Microeconomics', 'Numerical_Methods_in_Engineering', 'Principles_of_Programming_Languages', 'Sustainable_Dev_and_Env_Stewardship', 'System_Hardware', 'Technical_Writing_and_Communication'].
+A= 'Data_Structures_and_Algorithms',
+B= 'Engineering_Management_Principles_and_Economics',
+C= ['Impact_of_Technology_on_Society','Introduction_to_Marketing','Introduction_to_Microeconomics', 'Numerical_Methods_in_Engineering','Principles_of_Programming_Languages','Sustainable_Dev_and_Env_Stewardship','System_Hardware','Technical_Writing_and_Communication'].
+
