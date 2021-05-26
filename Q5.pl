@@ -37,6 +37,6 @@ findall(X, course(_,X,_), C),
 list_to_set(C, CommonClasses),
 sort(CommonClasses, SortedClasses),
 
-A = 'COMP348',
-B = 'COMP352',
-C = ['ECON201', 'ENCS282', 'ENGR202', 'ENGR301', 'ENGR391', 'ENGR392', 'MARK201', 'SOEN228'].
+A = 'Data_Structures_and_Algorithms',
+B = 'Engineering_Management_Principles_and_Economics',
+C = ['Impact_of_Technology_on_Society', 'Introduction_to_Marketing', 'Introduction_to_Microeconomics', 'Numerical_Methods_in_Engineering', 'Principles_of_Programming_Languages', 'Sustainable_Dev_and_Env_Stewardship', 'System_Hardware', 'Technical_Writing_and_Communication'].
